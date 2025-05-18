@@ -26,6 +26,12 @@ stages:
         provider: 'azurerm'
         command: 'init'
         workingDirectory: './terraform-function-app'
+        backendServiceArm: 'azure-connect'   # <-- this is required
+        backendAzureRmResourceGroupName: 'my-rg'
+        backendAzureRmStorageAccountName: 'mytfstate'
+        backendAzureRmContainerName: 'tfstate'
+        backendAzureRmKey: 'terraform.tfstate'
+        workingDirectory: 'terraform-function-app'
 
     # Terraform Plan
     - task: TerraformTaskV4@4
