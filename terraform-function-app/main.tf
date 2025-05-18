@@ -37,12 +37,9 @@ resource "azurerm_function_app" "function" {
   storage_account_access_key = azurerm_storage_account.function_storage.primary_access_key
   os_type                    = "linux"
   version                    = "~4"
-  functions_extension_version = "~4"
 
   site_config {
-    application_stack {
-      python_version = "3.10"
-    }
+    linux_fx_version = "Python|3.10"
   }
 
   app_settings = {
@@ -50,3 +47,4 @@ resource "azurerm_function_app" "function" {
     WEBSITE_RUN_FROM_PACKAGE = "1"
   }
 }
+
